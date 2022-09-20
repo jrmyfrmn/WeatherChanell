@@ -38,7 +38,7 @@ struct MenuHeaderView: View {
                 .padding(.leading, 10)
             
             RoundedRectangle(cornerRadius: 10)
-                .fill(Color.blue.opacity(0.5))
+                .fill(Color.red.opacity(0.3))
         })
     }
 }
