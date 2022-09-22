@@ -10,7 +10,6 @@ import SwiftUI
 struct MenuHeaderView: View {
     
     @ObservedObject var cityVM: CityViewViewModel
-    
     @State private var searchTerm = "Makati"
     
     var body: some View {
