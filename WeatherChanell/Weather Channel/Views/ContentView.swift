@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var cityVM: CityViewViewModel
+    @ObservedObject var cityVM = CityViewViewModel()
     
     var body: some View {
         ZStack(alignment: .bottom) {

@@ -23,7 +23,7 @@ struct SplashScreenView: View {
             VStack {
                 VStack {
                     
-                    Image("lsicon")
+                    Image("launchscreenicon")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 150)
