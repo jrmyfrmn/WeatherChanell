@@ -9,20 +9,15 @@ import SwiftUI
 
 struct SplashScreenView: View {
     @State private var isActive = false
-    @State private var size = 0.8 // Animation
-    @State private var opacity = 0.8 // Opacity
+    @State private var size = 0.8
+    @State private var opacity = 0.8
     
     var body: some View {
-        
         if isActive {
-            
             ContentView()
-            
         } else {
-            
             VStack {
                 VStack {
-                    
                     Image("AppIcon")
                         .resizable()
                         .scaledToFit()
@@ -32,7 +27,6 @@ struct SplashScreenView: View {
                         .font(.largeTitle)
                         .fontWeight(.heavy)
                         .foregroundColor(.gray.opacity(0.95))
-                    
                 }
                 .scaleEffect(size)
                 .opacity(opacity)
@@ -45,14 +39,12 @@ struct SplashScreenView: View {
             }
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                    withAnimation { // to avoid abrupt showing of ContentView
+                    withAnimation {
                         self.isActive = true
                     }
-                    
                 }
             }
         }
-        
     }
 }
 
