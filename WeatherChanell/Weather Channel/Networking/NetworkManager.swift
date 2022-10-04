@@ -36,7 +36,7 @@ final class NetworkManager<T: Codable> {
                 completion(.failure(.decodingError(err: err.localizedDescription)))
             }
             
-        }.resume() // to initiate network call
+        }.resume()
     }
 }
 

@@ -20,6 +20,7 @@ struct DailyWeatherView: View {
     }
     
     private func dailyCell(weather: DailyWeather) -> some View {
+        
         HStack {
             Text(cityVM.getDayFor(timestamp: weather.dt).uppercased())
                 .frame(width: 50)

@@ -13,6 +13,6 @@ extension API {
     
     static func getURLFor(lat: Double, lon: Double) -> String {
         
-        return "\(baseURLSting)onecall?lat=\(lat)&lon=\(lon)&exclude=minutely&appid=\(key)&unites=imperial"
+        return "\(baseURLSting)onecall?lat=\(lat)&lon=\(lon)&exclude=minutely&appid=\(key)&units=imperial"
     }
 }
