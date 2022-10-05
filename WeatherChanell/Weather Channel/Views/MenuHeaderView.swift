@@ -15,14 +15,14 @@ struct MenuHeaderView: View {
     var body: some View {
         HStack {
             TextField("", text: $searchTerm)
-                .padding(.leading, 20)
+                .padding(.leading, 30)
             
             Button {
                 cityVM.city = searchTerm
             } label: {
                 ZStack {
                     RoundedRectangle(cornerRadius: 10)
-                        .fill(Color.blue)
+                        .fill(Color.blue.opacity(0.9))
                     
                     Image(systemName: "location.fill")
                 }
@@ -36,14 +36,21 @@ struct MenuHeaderView: View {
                 .foregroundColor(.white)
                 .padding(.leading, 10)
             
-            RoundedRectangle(cornerRadius: 10)
-                .fill(Color.blue.opacity(0.5))
+            RoundedRectangle(cornerRadius: 20)
+                .fill(Color.white.opacity(0.3))
         })
     }
 }
 
 struct MenuHeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Group {
+            ContentView()
+                .previewDisplayName("LightMode")
+                .preferredColorScheme(.light)
+            ContentView()
+                .previewDisplayName("DarkMode")
+                .preferredColorScheme(.dark)
+        }
     }
 }

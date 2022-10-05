@@ -14,12 +14,12 @@ struct WelcomeView: View {
     var body: some View {
         VStack {
             VStack(spacing: 20) {
-                Text("Welcome to Weatherly!")
+                Text("Welcome to Weather Channel!🌤")
                     .bold()
                     .font(.title)
                 
                 Text("Tap the share current location button to know the weather in your area")
-                    .padding()
+                    .padding(10)
             }
             .multilineTextAlignment(.center)
             .padding()

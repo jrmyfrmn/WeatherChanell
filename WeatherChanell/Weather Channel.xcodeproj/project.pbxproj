@@ -134,12 +134,12 @@
 		125B538328CEFF330046B868 /* Weather Channel */ = {
 			isa = PBXGroup;
 			children = (
-				125B539B28CF050E0046B868 /* Lottie Animations */,
-				125B539A28CF04F90046B868 /* View Models */,
-				125B539928CF04EE0046B868 /* Views */,
 				125B539528CF04C20046B868 /* Models */,
+				125B539928CF04EE0046B868 /* Views */,
+				125B539A28CF04F90046B868 /* View Models */,
 				125B539428CF04B90046B868 /* Networking */,
 				125B538428CEFF330046B868 /* Weather_ChannelApp.swift */,
+				125B539B28CF050E0046B868 /* Lottie Animations */,
 				125B538A28CEFF380046B868 /* Preview Content */,
 			);
 			path = "Weather Channel";
@@ -181,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				125B538628CEFF330046B868 /* ContentView.swift */,
+				123972BE28E1B4AC00C6544C /* SplashScreenView.swift */,
 				129B117E28EC088300084BD7 /* WelcomeView.swift */,
 				129B118028EC08A000084BD7 /* LoadingView.swift */,
 				125D220328D2C61D001A9642 /* LottieView.swift */,
@@ -190,7 +191,6 @@
 				123972B828DC648B00C6544C /* HourlyWeatherView.swift */,
 				123972BA28DC66D600C6544C /* DailyWeatherView.swift */,
 				123972BC28DC692900C6544C /* CityView.swift */,
-				123972BE28E1B4AC00C6544C /* SplashScreenView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
