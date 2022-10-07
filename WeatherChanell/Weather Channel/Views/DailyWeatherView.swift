@@ -40,13 +40,6 @@ struct DailyWeatherView: View {
 
 struct DailyWeatherView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            ContentView()
-                .previewDisplayName("LightMode")
-                .preferredColorScheme(.light)
-            ContentView()
-                .previewDisplayName("DarkMode")
-                .preferredColorScheme(.dark)
-        }
+        DailyWeatherView(cityVM: CityViewViewModel())
     }
 }

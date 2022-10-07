@@ -106,7 +106,7 @@ final class CityViewViewModel: ObservableObject {
         }
     }
     private func getWeatherInternal(city: String, for urlString: String) {
-        NetworkManager<WeatherResponse>.fetch(for: URL(string: urlString)!) { (result) in
+        NetworkManager.fetch(for: URL(string: urlString)!) { (result) in
             switch result {
             case .success(let response):
                 DispatchQueue.main.async {

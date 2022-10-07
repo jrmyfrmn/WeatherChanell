@@ -25,6 +25,6 @@ struct CityView: View {
 
 struct CityView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        CityView(cityVM: CityViewViewModel())
     }
 }
