@@ -1,33 +1,33 @@
+////
+////  DailyWeather.swift
+////  Weather Channel
+////
+////  Created by jeremy.fermin on 9/12/22.
+////
 //
-//  DailyWeather.swift
-//  Weather Channel
+//import Foundation
 //
-//  Created by jeremy.fermin on 9/12/22.
+//struct DailyWeather: Codable, Identifiable {
+//    
+//    var dt: Int
+//    var temp: Temperature
+//    var weather: [WeatherDetail]
+//    
+//    enum CodingKey: String {
+//        case dt
+//        case temp
+//        case weather
+//        
+//    }
+//    init() {
+//        dt = 0
+//        temp = Temperature(min: 0.0, max: 0.0)
+//        weather = [WeatherDetail(main: "", description: "", icon: "")]
+//    }
+//}
 //
-
-import Foundation
-
-struct DailyWeather: Codable, Identifiable {
-    
-    var dt: Int
-    var temp: Temperature
-    var weather: [WeatherDetail]
-    
-    enum CodingKey: String {
-        case dt
-        case temp
-        case weather
-        
-    }
-    init() {
-        dt = 0
-        temp = Temperature(min: 0.0, max: 0.0)
-        weather = [WeatherDetail(main: "", description: "", icon: "")]
-    }
-}
-
-extension DailyWeather {
-    var id: UUID {
-        return UUID()
-    }
-}
+//extension DailyWeather {
+//    var id: UUID {
+//        return UUID()
+//    }
+//}

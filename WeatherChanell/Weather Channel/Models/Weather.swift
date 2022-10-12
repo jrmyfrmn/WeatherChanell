@@ -7,50 +7,82 @@
 
 import Foundation
 
-struct Weather: Codable, Identifiable {
-    var dt: Int
-    var temp: Double
-    var feels_like: Double
-    var pressure: Int
-    var humidity: Int
-    var dew_point: Double
-    var clouds: Int
-    var wind_speed: Double
-    var wind_deg: Int
-    var weather: [WeatherDetail]
+// MARK: - CITY
+struct CityName: Codable, Identifiable {
+    var name: String
+    var country: String
+    var id: UUID {
+        UUID()
+    }
     
-    enum CodingKey: String {
-        case dt
-        case temp
-        case feels_like
-        case pressure
-        case humidity
-        case dew_point
-        case clouds
-        case wind_speed
-        case wind_deg
-        case weather
+    enum CodingKeys: String, CodingKey {
+        case name = "name"
+        case country = "country"
     }
     
     init() {
-        dt = 0
-        temp = 0.0
-        feels_like = 0.0
-        pressure = 0
-        humidity = 0
-        dew_point = 0.0
-        clouds = 0
-        wind_speed = 0.0
-        wind_deg = 0
-        weather = []
+        name = ""
+        country = ""
+    }
+}
+
+// MARK: - LIST
+struct WeatherList: Codable, Identifiable {
+    var date: Int
+    var main: Main
+    var weather: [Weather]
+    var wind: Wind
+    var pop: Double
+    var id: UUID {
+        UUID()
     }
     
-}
-
-extension Weather {
-    var id: UUID {
-        return UUID()
+    enum CodingKeys: String, CodingKey {
+        case date = "dt"
+        case main = "main"
+        case weather = "weather"
+        case wind = "wind"
+        case pop = "pop"
+    }
+    
+    init() {
+        date = 0
+        main = Main(temp: 0.0, humidity: 0)
+        weather = []
+        wind = Wind(speed: 0.0)
+        pop = 0
     }
 }
 
+struct Main: Codable {
+    var temp: Double
+    var humidity: Int
+}
+
+struct Weather: Codable, Identifiable {
+    var main: String
+    var description: String
+    var icon: String
+    var id: Int {
+        0
+    }
+}
+
+struct Wind: Codable {
+    var speed: Double
+}
+
+
+// MARK: - WEATHER RESPONSE
+struct WeatherResponse: Codable {
+    var city: CityName
+    var list: [WeatherList]
+    
+    static func empty() -> WeatherResponse {
+        WeatherResponse(
+            city: CityName(),
+            list: [WeatherList](repeating: WeatherList(), count: 40)
+        )
+    }
+}
 

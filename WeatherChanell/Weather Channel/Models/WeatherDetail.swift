@@ -1,14 +1,14 @@
+////
+////  WeatherDetail.swift
+////  Weather Channel
+////
+////  Created by jeremy.fermin on 9/12/22.
+////
 //
-//  WeatherDetail.swift
-//  Weather Channel
+//import Foundation
 //
-//  Created by jeremy.fermin on 9/12/22.
-//
-
-import Foundation
-
-struct WeatherDetail: Codable {
-    var main: String
-    var description: String
-    var icon: String
-}
+//struct WeatherDetail: Codable {
+//    var main: String
+//    var description: String
+//    var icon: String
+//}

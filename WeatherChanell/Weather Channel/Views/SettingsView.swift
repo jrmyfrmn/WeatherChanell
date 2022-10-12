@@ -7,66 +7,91 @@
 
 import SwiftUI
 
-enum TemperatureUnit: String, CaseIterable, Identifiable {
-    
-    var id: String {
-        return rawValue
-    }
-    
-    case celsius
-    case fahrenheit
-    case kelvin
-}
+struct SettingsView: View {
 
-extension TemperatureUnit {
-    
-    var displayText: String {
-        switch self {
-            case .celsius:
-                return "Celsius"
-            case .fahrenheit:
-                return "Fahrenheit"
-            case .kelvin:
-                return "Kelvin"
-        }
-    }
-    
-}
-
-struct SettingsScreen: View {
-    
+    @Environment(\.presentationMode) var presentationMode
+    @AppStorage("isDarkMode") private var isDarkMode = false
+    @AppStorage("unit") private var tempUnit: TemperatureUnit = .celsius
+    @State private var isUnitChanged: Bool = false
     @EnvironmentObject var store: Store
-    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
-    @AppStorage("unit") private var selectedUnit: TemperatureUnit = .kelvin
     
     var body: some View {
-        
         NavigationView {
-            VStack {
-                Picker(selection: $selectedUnit, label: Text("Select temperature unit?")) {
-                    ForEach(TemperatureUnit.allCases, id: \.self) {
-                        Text("\($0.displayText)" as String)
+            VStack(alignment: .center, spacing: 0) {
+                Form {
+                    //MARK: - ABOUT
+                    Section(header:
+                                HStack {
+                        Text("Weatherly App")
+                    }) {
+                        About()
+                            .padding()
+                    }
+                    
+                    //MARK: - THEME
+                    Section(header:
+                                HStack {
+                        Text("Choose the app theme")
+                    }) {
+                        Picker("Theme", selection: $isDarkMode) {
+                            Text("Light Mode")
+                                .preferredColorScheme(.light)
+                                .tag(false)
+                            Text("Dark Mode")
+                                .preferredColorScheme(.dark)
+                                .tag(true)
+                        }
+                        .padding(.vertical, 3)
+                    }
+                    
+                    //MARK: - UNITS
+                    Section(header:
+                                HStack {
+                        Text("Choose Temperature Units")
+                    }) {
+                        VStack (alignment: .leading) {
+                            Text("Units")
+
+                            Picker(selection: $tempUnit, label: Text("Select temperature unit?")) {
+                                ForEach(TemperatureUnit.allCases, id: \.self) {
+                                    Text("\($0.displayText)" as String)
+                                }
+                            }
+                            .pickerStyle(SegmentedPickerStyle())
+                            
+                            Spacer()
+                        }
+                        
                     }
                 }
-                .pickerStyle(SegmentedPickerStyle())
+                .listStyle(GroupedListStyle())
+                .environment(\.horizontalSizeClass, .regular)
                 
-                Spacer()
+                // MARK: - FOOTER
+                Text("iOS Mobile App Dev Bootcamp\njian.mikee.pacheco")
+                    .multilineTextAlignment(.center)
+                    .font(.footnote)
+                    .padding(.top, 6)
+                    .padding(.bottom, 8)
+                    .foregroundColor(Color.secondary)
             }
+            .navigationBarItems(trailing: Button(action: {
+                self.presentationMode.wrappedValue.dismiss()
+                store.tempUnit = tempUnit
+            }) {
+                Image(systemName: "xmark")
+            }
+            )
+            .navigationBarTitle("Settings", displayMode: .inline)
         }
-        .padding(50)
-        .navigationTitle("Settings")
-        .navigationBarItems(trailing: Button("Done") {
-            
-            mode.wrappedValue.dismiss()
-            store.selectedUnit = selectedUnit
-            
-        })
-        //.embedInNavigationView()
     }
 }
 
-struct SettingsScreen_Previews: PreviewProvider {
+// MARK: - BODY
+struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsScreen()
+        SettingsView()
+            .preferredColorScheme(.light)
+            .environmentObject(Store())
     }
 }
