@@ -32,14 +32,15 @@ struct LocationList: View {
                 Text("\(weatherVM.getTempByUnit(unit: store.tempUnit)[0]) °\(String(store.tempUnit.displayText.prefix(1)))")
                 Text("\(weatherVM.dailyConditions[0].uppercased())")
             }
-            .font(.footnote)
-            .frame(width: 100, alignment: .topTrailing)
+//            .font(.footnote)
+//            .frame(width: 100, alignment: .topTrailing)
             
         }
         .padding(.vertical)
         .foregroundColor(Color("TextColor"))
         .background(RoundedRectangle(cornerRadius: 10)
-            .foregroundColor(Color("ThemeColor"))
+            //.foregroundColor(Color("ThemeColor"))
+            .foregroundColor(.white.opacity(0.7))
             .frame(width: 345, height: 60)
         )
         .preferredColorScheme(isDarkMode ? .dark : .light)

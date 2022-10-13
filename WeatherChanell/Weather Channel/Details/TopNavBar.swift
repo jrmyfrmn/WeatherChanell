@@ -16,7 +16,7 @@ struct TopNavBar: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 20)
-                .foregroundColor(Color("ConcCircleColor"))
+                .foregroundColor(.white.opacity(0.7))
                 .frame(width: 60, height: 30)
             
             Text(title)

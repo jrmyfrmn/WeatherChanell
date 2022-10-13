@@ -8,16 +8,12 @@
 import SwiftUI
 
 struct HomeScreenView: View {
-    // MARK: - PROPERTY
     
     @State private var showingSettingsView: Bool = false
     @State private var activeSheet: Sheets?
-    
     @EnvironmentObject var store: Store
-    
     @AppStorage("isDarkMode") private var isDarkMode = false
     
-    // MARK: - BODY
     var body: some View {
         NavigationView {
             ZStack {
@@ -33,7 +29,6 @@ struct HomeScreenView: View {
                             WeatherDay(day: day)
                         }
                     }.offset(x: 0, y: -20)
-                    
                 }
                 .padding(.horizontal)
                 .background(
@@ -45,42 +40,38 @@ struct HomeScreenView: View {
                         .navigationBarItems(leading: Button(action: {
                             self.showingSettingsView.toggle()
                         }) {
-                            Image(systemName: "gear")
-                                .foregroundColor(Color("TextColor"))
+                            Image(systemName: "gearshape.fill")
+                                .foregroundColor(.white.opacity(0.7))
+                                //.foregroundColor(Color("TextColor"))
                                 .padding()
                         })
-                    
                 )
                 .sheet(isPresented: $showingSettingsView) {
                     SettingsView()
                 }
-                
             }
             .overlay(
                 NavigationLink(destination: AddLocationView()) {
                     ZStack{
-                        ConcCircle()
+                        //ConcCircle()
                         Image(systemName: "plus.circle.fill")
                             .resizable()
                             .scaledToFit()
                             .background(Circle().fill(.clear))
-                            .frame(width: 48, height: 48, alignment: .center)
-                            .accentColor(Color("ConcCircleColor"))
+                            .frame(width: 30, height: 30, alignment: .center)
+                            .foregroundColor(.white.opacity(0.7))
+                            //.accentColor(Color("ConcCircleColor"))
                     }
-                    .padding(.bottom, 15)
-                    .padding(.trailing, 15)
+                    .padding(.bottom, 10)
+                    .padding(.trailing, 20)
                 }
                 , alignment: .bottomTrailing
             )
-            
             .preferredColorScheme(isDarkMode ? .dark : .light)
-            
         }.navigationBarHidden(true)
     }
-    
 }
 
-// MARK: - PREVIEW
 struct HomeScreenView_Previews: PreviewProvider {
     static var previews: some View {
         HomeScreenView().environmentObject(Store())

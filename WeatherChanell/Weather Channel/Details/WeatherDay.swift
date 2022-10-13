@@ -44,7 +44,8 @@ struct WeatherDay: View {
         .background(
             RoundedRectangle(cornerRadius: 20)
                 .frame(width: 300, height: 100)
-                .foregroundColor(Color("ThemeColor"))
+                .foregroundColor(.white.opacity(0.7))
+                //.foregroundColor(Color("ThemeColor"))
         )
         .preferredColorScheme(isDarkMode ? .dark : .light)
     }

@@ -17,14 +17,15 @@ struct AddLocationView: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var locationList: [String] = []
     
-
     var body: some View {
         NavigationView {
             ZStack {
                 VStack (spacing: 0) {
                     HStack {
                         Text("Location List")
-                            .foregroundColor(Color("TextColor"))
+                            //.foregroundColor(.white.opacity(0.7))
+                            //.foregroundColor(Color("TextColor"))
+                            .foregroundColor(.white)
                             .fontWeight(.bold)
                             .font(.title)
                         
@@ -35,18 +36,19 @@ struct AddLocationView: View {
                             .fill(Color("ConcCircleColor"))
                             .frame(width: 350, height: 55)
                         
+                        
                         HStack {
                             Spacer()
-                            Image(systemName: "location.magnifyingglass")
+                            Image(systemName: "location.fill")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: 35, height: 35)
+                                .frame(width: 20, height: 50)
                                 .padding()
                             
                             Spacer()
                             TextField("Search", text: $startCity)
-                                .padding(.leading, 10)
-                                .font(.title)
+                                //.padding(.leading, 10)
+                                .font(.title2)
                             
                             Spacer()
                         }
@@ -72,10 +74,10 @@ struct AddLocationView: View {
                 NavigationLink(destination: HomeScreenView())
                 {
                     TopNavBar(title: "Back").padding()
+                    
                 }
             })
             )
-            
             .navigationBarItems(trailing: Button( action: {
                 Constants.Strings.city = startCity
                 locationList.append(startCity)

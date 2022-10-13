@@ -19,19 +19,17 @@ struct SettingsView: View {
         NavigationView {
             VStack(alignment: .center, spacing: 0) {
                 Form {
-                    //MARK: - ABOUT
                     Section(header:
                                 HStack {
-                        Text("Weatherly App")
+                        Text("Weather Channel")
                     }) {
                         About()
                             .padding()
                     }
                     
-                    //MARK: - THEME
                     Section(header:
                                 HStack {
-                        Text("Choose the app theme")
+                        Text("Apperance")
                     }) {
                         Picker("Theme", selection: $isDarkMode) {
                             Text("Light Mode")
@@ -44,7 +42,6 @@ struct SettingsView: View {
                         .padding(.vertical, 3)
                     }
                     
-                    //MARK: - UNITS
                     Section(header:
                                 HStack {
                         Text("Choose Temperature Units")
@@ -67,8 +64,7 @@ struct SettingsView: View {
                 .listStyle(GroupedListStyle())
                 .environment(\.horizontalSizeClass, .regular)
                 
-                // MARK: - FOOTER
-                Text("iOS Mobile App Dev Bootcamp\njian.mikee.pacheco")
+                Text("")
                     .multilineTextAlignment(.center)
                     .font(.footnote)
                     .padding(.top, 6)

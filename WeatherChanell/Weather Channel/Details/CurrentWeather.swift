@@ -46,12 +46,12 @@ struct CurrentWeather: View {
                     .padding(.horizontal)
                 
             }.padding()
-            
         }
         .foregroundColor(Color("TextColor"))
         .background(
             RoundedRectangle(cornerRadius: 30)
-                .foregroundColor(Color("ThemeColor"))
+                .foregroundColor(.white.opacity(0.7))
+                //.foregroundColor(Color("ThemeColor"))
                 .frame(width: 350, height: 250)
         )
         .preferredColorScheme(isDarkMode ? .dark : .light)
