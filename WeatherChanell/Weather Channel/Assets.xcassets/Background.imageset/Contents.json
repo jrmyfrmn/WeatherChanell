@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "LightMode.jpg",
+      "filename" : "LightBG.jpeg",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,7 +12,7 @@
           "value" : "light"
         }
       ],
-      "filename" : "LightMode 1.jpg",
+      "filename" : "LightBG 1.jpeg",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -23,12 +23,12 @@
           "value" : "dark"
         }
       ],
-      "filename" : "DarkMode.jpg",
+      "filename" : "DarkBG.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "LightMode 2x.jpg",
+      "filename" : "LightBG copy.jpeg",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -39,7 +39,7 @@
           "value" : "light"
         }
       ],
-      "filename" : "LightMode 2x 1.jpg",
+      "filename" : "LightBG copy 1.jpeg",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -50,12 +50,12 @@
           "value" : "dark"
         }
       ],
-      "filename" : "DarkMode 2x.jpg",
+      "filename" : "DarkBG copy.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "LightMode copy 3x.jpg",
+      "filename" : "LightBG copy 2.jpeg",
       "idiom" : "universal",
       "scale" : "3x"
     },
@@ -66,7 +66,7 @@
           "value" : "light"
         }
       ],
-      "filename" : "LightMode copy 3x 1.jpg",
+      "filename" : "LightBG copy 3.jpeg",
       "idiom" : "universal",
       "scale" : "3x"
     },
@@ -77,7 +77,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "DarkMode 3x.jpg",
+      "filename" : "DarkBG copy 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

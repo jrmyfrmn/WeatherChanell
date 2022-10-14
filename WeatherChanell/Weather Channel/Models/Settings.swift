@@ -33,7 +33,6 @@ enum Sheets: Identifiable {
     var id: UUID {
         return UUID()
     }
-    
     case settings
 }
 

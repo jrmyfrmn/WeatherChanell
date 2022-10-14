@@ -20,23 +20,22 @@ struct AddLocationView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                VStack (spacing: 0) {
+                VStack (spacing: 5) {
                     HStack {
                         Text("Location List")
-                            //.foregroundColor(.white.opacity(0.7))
-                            //.foregroundColor(Color("TextColor"))
-                            .foregroundColor(.white)
+                            .foregroundColor(Color("TextColor"))
                             .fontWeight(.bold)
                             .font(.title)
                         
-                        Spacer().frame(width: 150)
+                        Spacer().frame(width: 5)
                     }.padding(.horizontal)
                     ZStack {
-                        RoundedRectangle(cornerRadius: 15)
-                            .fill(Color("ConcCircleColor"))
+                        
+                     RoundedRectangle(cornerRadius: 15)
+                            .background(.ultraThinMaterial.opacity(0.1))
+                            //.fill(Color("ConcCircleColor"))
                             .frame(width: 350, height: 55)
-                        
-                        
+   
                         HStack {
                             Spacer()
                             Image(systemName: "location.fill")
@@ -44,17 +43,23 @@ struct AddLocationView: View {
                                 .scaledToFit()
                                 .frame(width: 20, height: 50)
                                 .padding()
+                                .foregroundColor(.white)
                             
                             Spacer()
                             TextField("Search", text: $startCity)
-                                //.padding(.leading, 10)
+                                .padding(.leading, 10)
                                 .font(.title2)
+                            
                             
                             Spacer()
                         }
                     }
-                    .foregroundColor(Color("TextColor"))
+                    //.background(.ultraThinMaterial)
+                    //.foregroundColor(.blue)
+                    //.foregroundColor(Color("TextColor"))
                     .padding(.horizontal)
+                    .padding(.vertical)
+                    
                     
                     List {
                         ForEach(locationList, id: \.self) { location in
@@ -64,16 +69,24 @@ struct AddLocationView: View {
                         label: { LocationList(locationName: location)
                         }.listRowBackground(Color.clear)
                         }
-                    }.listStyle(PlainListStyle()).padding(.horizontal)
+                    }.listStyle(.insetGrouped)
+                        //.environment(\.horizontalSizeClass, .regular)
+                    //.listStyle(.inset)
+                    //.listStyle(PlainListStyle()).padding(.horizontal)
                     
                 }
                 .padding(.horizontal)
+                //.background(.ultraThinMaterial)
                 
             }
+            
             .navigationBarItems(leading: Button(action: {}, label: {
                 NavigationLink(destination: HomeScreenView())
                 {
-                    TopNavBar(title: "Back").padding()
+                    Image(systemName: "chevron.backward.circle.fill").font(.system(size: 20)).padding(10)
+                        .offset(x:1,y:1)
+                        .font(.title)
+                        .foregroundColor(Color("TextColor"))
                     
                 }
             })
@@ -82,7 +95,10 @@ struct AddLocationView: View {
                 Constants.Strings.city = startCity
                 locationList.append(startCity)
             }) {
-                TopNavBar(title: "Add").padding()
+                Image(systemName: "plus.circle.fill").font(.system(size: 20)).padding(10)
+                    .offset(x:1,y:1)
+                    .font(.title)
+                    .foregroundColor(Color("TextColor"))
             })
             .background(
                 Image("Background")

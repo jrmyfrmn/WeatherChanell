@@ -8,12 +8,13 @@
 import Foundation
 
 struct AddLocation: Identifiable, Codable {
+    
     var id: String = UUID().uuidString
     var location: String
     
     static var sampleData: [AddLocation] {
         [
-            AddLocation(location: "Manila")
+            AddLocation(location: "Makati")
         ]
     }
 }

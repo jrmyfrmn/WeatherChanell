@@ -7,7 +7,6 @@
 
 import Foundation
 
-// MARK: - CITY
 struct CityName: Codable, Identifiable {
     var name: String
     var country: String
@@ -26,7 +25,6 @@ struct CityName: Codable, Identifiable {
     }
 }
 
-// MARK: - LIST
 struct WeatherList: Codable, Identifiable {
     var date: Int
     var main: Main
@@ -72,8 +70,6 @@ struct Wind: Codable {
     var speed: Double
 }
 
-
-// MARK: - WEATHER RESPONSE
 struct WeatherResponse: Codable {
     var city: CityName
     var list: [WeatherList]

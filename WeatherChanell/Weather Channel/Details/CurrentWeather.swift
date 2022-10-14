@@ -48,12 +48,14 @@ struct CurrentWeather: View {
             }.padding()
         }
         .foregroundColor(Color("TextColor"))
-        .background(
-            RoundedRectangle(cornerRadius: 30)
-                .foregroundColor(.white.opacity(0.7))
-                //.foregroundColor(Color("ThemeColor"))
-                .frame(width: 350, height: 250)
-        )
+        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 30, style: .continuous))
+//            .cornerRadius(40, corners: [.topLeft, .topRight])
+//        .background(
+//            RoundedRectangle(cornerRadius: 30)
+//                .foregroundColor(.white.opacity(0.7))
+//                //.foregroundColor(Color("ThemeColor"))
+//                .frame(width: 350, height: 250)
+        //)
         .preferredColorScheme(isDarkMode ? .dark : .light)
     }
 }

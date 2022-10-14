@@ -83,7 +83,6 @@ struct SettingsView: View {
     }
 }
 
-// MARK: - BODY
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView()

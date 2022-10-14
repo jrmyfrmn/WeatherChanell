@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct About: View {
-    
+
     var body: some View {
         HStack(alignment: .center, spacing: 10) {
             Image(systemName: "iphone")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 80, height: 80)
-            
+
             Spacer()
             Text("")
                 .font(.subheadline)

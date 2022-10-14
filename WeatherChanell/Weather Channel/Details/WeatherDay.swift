@@ -35,18 +35,19 @@ struct WeatherDay: View {
             weatherVM.getWeatherIconFor(icon: weatherVM.dailyWeatherIcons[day])
                 .resizable()
                 .scaledToFit()
-                .frame(width: 80, height: 80, alignment: .trailing)
+                .frame(width: 70, height: 70, alignment: .trailing)
             
             Spacer().frame(width: 70)
         }
-        .padding()
+        .padding(10)
         .foregroundColor(Color("TextColor"))
-        .background(
-            RoundedRectangle(cornerRadius: 20)
-                .frame(width: 300, height: 100)
-                .foregroundColor(.white.opacity(0.7))
+        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 30, style: .continuous))
+//        .background(
+//            RoundedRectangle(cornerRadius: 20)
+//                .frame(width: 300, height: 100)
+//                .foregroundColor(.white.opacity(0.7))
                 //.foregroundColor(Color("ThemeColor"))
-        )
+        //)
         .preferredColorScheme(isDarkMode ? .dark : .light)
     }
 }
