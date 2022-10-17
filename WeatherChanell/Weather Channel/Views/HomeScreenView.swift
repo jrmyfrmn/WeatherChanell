@@ -42,7 +42,6 @@ struct HomeScreenView: View {
                         }) {
                             Image(systemName: "gearshape.fill")
                                 .foregroundColor(.white.opacity(0.7))
-                                //.foregroundColor(Color("TextColor"))
                                 .padding()
                         })
                 )
@@ -53,14 +52,12 @@ struct HomeScreenView: View {
             .overlay(
                 NavigationLink(destination: AddLocationView()) {
                     ZStack{
-                        //ConcCircle()
                         Image(systemName: "plus.circle.fill")
                             .resizable()
                             .scaledToFit()
                             .background(Circle().fill(.clear))
                             .frame(width: 30, height: 30, alignment: .center)
                             .foregroundColor(.white.opacity(0.7))
-                            //.accentColor(Color("ConcCircleColor"))
                     }
                     .padding(.bottom, 10)
                     .padding(.trailing, 20)

@@ -42,12 +42,6 @@ struct WeatherDay: View {
         .padding(10)
         .foregroundColor(Color("TextColor"))
         .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 30, style: .continuous))
-//        .background(
-//            RoundedRectangle(cornerRadius: 20)
-//                .frame(width: 300, height: 100)
-//                .foregroundColor(.white.opacity(0.7))
-                //.foregroundColor(Color("ThemeColor"))
-        //)
         .preferredColorScheme(isDarkMode ? .dark : .light)
     }
 }

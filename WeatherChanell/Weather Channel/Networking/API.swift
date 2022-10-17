@@ -51,6 +51,3 @@ enum NetworkError: Error {
     case decodingError(err: String)
     case error(err: String)
 }
-
-
-

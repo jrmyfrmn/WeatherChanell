@@ -17,7 +17,7 @@ struct About: View {
                 .frame(width: 80, height: 80)
 
             Spacer()
-            Text("")
+            Text(" Jeremy's iPhone")
                 .font(.subheadline)
                 .multilineTextAlignment(.leading)
         }

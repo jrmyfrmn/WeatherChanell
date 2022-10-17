@@ -18,6 +18,5 @@ class Store: ObservableObject {
     
     func addWeather(_ weather: WeatherVM) {
         weatherLocList.append(weather)
-    }
-    
+    }    
 }

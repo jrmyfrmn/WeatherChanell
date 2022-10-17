@@ -13,6 +13,4 @@ class Constants {
     class Strings {
         static var city = "Manila"
     }
-    
 }
-

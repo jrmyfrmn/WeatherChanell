@@ -32,4 +32,3 @@ class Time {
         return formatter
     }()
 }
-

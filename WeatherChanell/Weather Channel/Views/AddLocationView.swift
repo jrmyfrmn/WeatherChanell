@@ -33,7 +33,6 @@ struct AddLocationView: View {
                         
                      RoundedRectangle(cornerRadius: 15)
                             .background(.ultraThinMaterial.opacity(0.1))
-                            //.fill(Color("ConcCircleColor"))
                             .frame(width: 350, height: 55)
    
                         HStack {
@@ -49,17 +48,12 @@ struct AddLocationView: View {
                             TextField("Search", text: $startCity)
                                 .padding(.leading, 10)
                                 .font(.title2)
-                            
-                            
+                                                        
                             Spacer()
                         }
                     }
-                    //.background(.ultraThinMaterial)
-                    //.foregroundColor(.blue)
-                    //.foregroundColor(Color("TextColor"))
                     .padding(.horizontal)
                     .padding(.vertical)
-                    
                     
                     List {
                         ForEach(locationList, id: \.self) { location in
@@ -70,14 +64,8 @@ struct AddLocationView: View {
                         }.listRowBackground(Color.clear)
                         }
                     }.listStyle(.insetGrouped)
-                        //.environment(\.horizontalSizeClass, .regular)
-                    //.listStyle(.inset)
-                    //.listStyle(PlainListStyle()).padding(.horizontal)
-                    
                 }
                 .padding(.horizontal)
-                //.background(.ultraThinMaterial)
-                
             }
             
             .navigationBarItems(leading: Button(action: {}, label: {
@@ -86,8 +74,7 @@ struct AddLocationView: View {
                     Image(systemName: "chevron.backward.circle.fill").font(.system(size: 20)).padding(10)
                         .offset(x:1,y:1)
                         .font(.title)
-                        .foregroundColor(Color("TextColor"))
-                    
+                        .foregroundColor(Color("TextColor"))                    
                 }
             })
             )

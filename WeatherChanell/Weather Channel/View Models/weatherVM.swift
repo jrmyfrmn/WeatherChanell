@@ -26,12 +26,9 @@ final class WeatherVM: ObservableObject {
         }
     }
     
-    //MARK: - GEOCODE
-    
     init() {
         getLocation()
     }
-    
     
     func getLocation() {
         CLGeocoder().geocodeAddressString(city) { (placemarks, error) in
@@ -66,8 +63,6 @@ final class WeatherVM: ObservableObject {
             }
         }
     }
-    
-    //MARK: - CURRENT
     
     var currentLocation: String {
         return weather.city.name
@@ -105,8 +100,6 @@ final class WeatherVM: ObservableObject {
         return toString(100*(weather.list.first?.pop ?? 0.0))
     }
     
-    //MARK: - DAY
-    
     var dailyDays: [String] {
         return [ Time.dayFormatter.string(from: Date(timeIntervalSince1970: TimeInterval(weather.list[0].date ))),
                  Time.dayFormatter.string(from: Date(timeIntervalSince1970: TimeInterval(weather.list[7].date ))),
@@ -117,8 +110,6 @@ final class WeatherVM: ObservableObject {
         ]
     }
     
-    //MARK: - DATE
-    
     var dailyDates: [String] {
         return [ Time.dateFormatter.string(from: Date(timeIntervalSince1970: TimeInterval(weather.list[0].date ))),
                  Time.dateFormatter.string(from: Date(timeIntervalSince1970: TimeInterval(weather.list[7].date ))),
@@ -128,8 +119,6 @@ final class WeatherVM: ObservableObject {
                  Time.dateFormatter.string(from: Date(timeIntervalSince1970: TimeInterval(weather.list[39].date )))
         ]
     }
-    
-    //MARK: - TEMPERATURE
     
     func getTempByUnit(unit: TemperatureUnit) -> [String] {
         switch unit {
@@ -152,8 +141,6 @@ final class WeatherVM: ObservableObject {
         }
     }
     
-    //MARK: - CONDITION
-    
     var dailyConditions: [String] {
         return [ weather.list[0].weather.first?.description ?? "Sunny",
                  weather.list[7].weather.first?.description ?? "Sunny",
@@ -164,8 +151,6 @@ final class WeatherVM: ObservableObject {
         ]
     }
     
-    //MARK: - WEATHER ICON
-    
     var dailyWeatherIcons: [String] {
         return [ weather.list[0].weather.first?.icon ?? "",
                  weather.list[7].weather.first?.icon ?? "",
@@ -175,8 +160,6 @@ final class WeatherVM: ObservableObject {
                  weather.list[39].weather.first?.icon ?? ""
         ]
     }
-    
-    //MARK: - FUNCTIONS
     
     func toString(_ double: Double) -> String {
         return String(format: "%1.f", double)

@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct LocationList: View {
-  
-    @StateObject var weatherVM = WeatherVM()
+      
     @AppStorage("isDarkMode") private var isDarkMode = false
     @EnvironmentObject var store: Store
+    @StateObject var weatherVM = WeatherVM()
     
     let id = UUID()
     let locationName: String
@@ -38,10 +38,8 @@ struct LocationList: View {
         }
         .padding(.vertical)
         .foregroundColor(.black.opacity(0.7))
-       // .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 30, style: .continuous))
        .background(RoundedRectangle(cornerRadius: 10)
             .foregroundColor(Color("ThemeColor"))
-           //.foregroundColor(.white.opacity(0.7))
            .frame(width: 345, height: 60)
         )
         .preferredColorScheme(isDarkMode ? .dark : .light)

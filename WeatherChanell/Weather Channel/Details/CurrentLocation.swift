@@ -21,7 +21,6 @@ struct CurrentLocation: View {
             Text("\(weatherVM.currentDate)")
         }
         .foregroundColor(Color("TextColor"))
-        //.foregroundColor(.white)
         .preferredColorScheme(isDarkMode ? .dark : .light)
     }
 }

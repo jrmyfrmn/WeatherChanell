@@ -1,78 +1,104 @@
 ////
 ////  ContentView.swift
-////  Weather Channel
+////  Weatherly
 ////
-////  Created by jeremy.fermin on 9/12/22.
+////  Created by jian.mikee.pacheco on 9/8/22.
 ////
 //
 //import SwiftUI
+//import CoreData
 //
 //struct ContentView: View {
-//    
-//    @StateObject var locationManager = LocationManager()
-//    @ObservedObject var cityVM = CityViewViewModel()
-//    @State var weather: WeatherResponse?
-//    var networkManager = NetworkManager()
-//    
-//    enum Assets {
-//        static let modes = Image("modes")
-//    }
-//    
+//    @Environment(\.managedObjectContext) private var viewContext
+//
+//    @AppStorage("isDarkMode") private var isDarkMode = false
+//
+//    @FetchRequest(
+//        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+//        animation: .default)
+//    //private var items: FetchedResults<Item>
+//
 //    var body: some View {
-//        HStack {
-//            ZStack(alignment: .bottom) {
-//                Assets
-//                    .modes
-//                    .resizable()
-//                    .aspectRatio(contentMode: .fill)
-//                    .edgesIgnoringSafeArea(.all)
-//                
-//                VStack {
-//                    if let location = locationManager.location {
-//                        if weather != nil {
-//                            TodayWeatherView(cityVM: CityViewViewModel())
-//                        } else {
-//                            LoadingView()
-//                                .task {
-//                                    do {
-//                                        weather = try await
-//                                        networkManager.fetch(latitude: location.latitude, longitude: location.longitude)
-//                                    } catch {
-//                                        print("Error getting weather: \(error)")
-//                                    }
-//                                }
-//                        }
-//                    } else {
-//                        if locationManager.isLoading {
-//                            LoadingView()
-//                        } else {
-//                            WelcomeView()
-//                                .environmentObject(locationManager)
+//        NavigationView {
+//            ZStack {
+//                List {
+//                    //ForEach(items) { item in
+//                        NavigationLink {
+//                            Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+//                                //HomeScreenView()
+//                        } label: {
+//                            Text(item.timestamp!, formatter: itemFormatter)
+//
 //                        }
 //                    }
-//                } // End of VStack
-//                
-////                VStack(spacing: 0) {
-////                    MenuHeaderView(cityVM: cityVM).padding(30)
-////                    ScrollView(showsIndicators: false) {
-////                        CityView(cityVM: cityVM)
-////
-////                    }.padding(.top, 2)
-////                }.padding(.top, 5)
+//                    .onDelete(perform: deleteItems)
+//                    .listRowBackground(Color.clear)
+//                }
+//                .listStyle(PlainListStyle())
+//                .toolbar {
+//                    ToolbarItem(placement: .navigationBarTrailing) {
+//                        EditButton()
+//                    }
+//                    ToolbarItem {
+//                        Button(action: addItem) {
+//                            Label("Add Item", systemImage: "plus")
+//                        }
+//                    }
+//            }
+//                .background(
+//                    Image("Background")
+//                        .resizable()
+//                        .scaledToFill()
+//                        .ignoresSafeArea(.all)
+//                    )
+//
+//            }
+//            Text("Select an item")
+//
+//        }.preferredColorScheme(isDarkMode ? .dark : .light)
+//    }
+//
+//    private func addItem() {
+//        withAnimation {
+//            let newItem = Item(context: viewContext)
+//            newItem.timestamp = Date()
+//
+//            do {
+//                try viewContext.save()
+//            } catch {
+//                // Replace this implementation with code to handle the error appropriately.
+//                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+//                let nsError = error as NSError
+//                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+//            }
+//        }
+//    }
+//
+//    private func deleteItems(offsets: IndexSet) {
+//        withAnimation {
+//            offsets.map { items[$0] }.forEach(viewContext.delete)
+//
+//            do {
+//                try viewContext.save()
+//            } catch {
+//                // Replace this implementation with code to handle the error appropriately.
+//                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+//                let nsError = error as NSError
+//                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
 //            }
 //        }
 //    }
 //}
 //
+//private let itemFormatter: DateFormatter = {
+//    let formatter = DateFormatter()
+//    formatter.dateStyle = .short
+//    formatter.timeStyle = .medium
+//    return formatter
+//}()
+//
 //struct ContentView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        Group {
-//            ContentView()
-//                .previewDisplayName("LightMode")
-//                .preferredColorScheme(.light)
-//            ContentView()
-//                .previewDisplayName("DarkMode")
-//                .preferredColorScheme(.dark)
-//        }
+//        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
 //    }
 //}
