@@ -12,14 +12,9 @@ import SwiftUI
 
 final class WeatherVM: ObservableObject {
     
-    //MARK: - PROPERTIES
-    
     let id = UUID()
-    
     @EnvironmentObject var store: Store
-    
     @Published var weather = WeatherResponse.empty()
-    
     @Published var city = Constants.Strings.city {
         didSet {
             getLocation()

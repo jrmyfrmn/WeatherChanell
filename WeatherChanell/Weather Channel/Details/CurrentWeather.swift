@@ -14,7 +14,25 @@ struct CurrentWeather: View {
     @EnvironmentObject var store: Store
     
     var body: some View {
-        VStack (alignment: .center) {
+        VStack(alignment: .leading, spacing: 20) {
+            HStack {
+                Text("Today's Weather")
+                    .bold()
+                    .foregroundColor(Color("TextColor"))
+                
+                Spacer()
+                                
+                NavigationLink(destination: Next5DaysView(), label: {
+                    
+                    Text("Next 5 Days")
+                        .bold()
+                        .foregroundColor(Color("TextColor"))
+                    
+                })
+                .navigationTitle("")
+                Image(systemName: "chevron.right.circle.fill")
+                    .foregroundColor(Color("TextColor"))
+            }
             HStack (alignment: .center) {
                 Spacer()
                 weatherVM.getWeatherIconFor(icon: weatherVM.dailyWeatherIcons[0])
@@ -34,7 +52,6 @@ struct CurrentWeather: View {
                 }
                 Spacer()
             }.padding()
-            
             HStack {
                 WeatherPane(image: "wind", value: "\(weatherVM.currentWind) m/s")
                     .padding(.horizontal)
@@ -47,6 +64,9 @@ struct CurrentWeather: View {
                 
             }.padding()
         }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding()
+        .padding(10)
         .foregroundColor(Color("TextColor"))
         .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 30, style: .continuous))
         .preferredColorScheme(isDarkMode ? .dark : .light)

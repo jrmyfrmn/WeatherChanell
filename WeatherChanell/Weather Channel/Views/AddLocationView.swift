@@ -42,19 +42,17 @@ struct AddLocationView: View {
                                 .scaledToFit()
                                 .frame(width: 20, height: 50)
                                 .padding()
-                                .foregroundColor(.white)
-                            
+                                .foregroundColor(Color("TextColor"))
                             Spacer()
                             TextField("Search", text: $startCity)
                                 .padding(.leading, 10)
                                 .font(.title2)
-                                                        
                             Spacer()
                         }
                     }
                     .padding(.horizontal)
                     .padding(.vertical)
-                    
+                                        
                     List {
                         ForEach(locationList, id: \.self) { location in
                             NavigationLink {
@@ -66,6 +64,7 @@ struct AddLocationView: View {
                     }.listStyle(.insetGrouped)
                 }
                 .padding(.horizontal)
+                
             }
             
             .navigationBarItems(leading: Button(action: {}, label: {
@@ -74,7 +73,8 @@ struct AddLocationView: View {
                     Image(systemName: "chevron.backward.circle.fill").font(.system(size: 20)).padding(10)
                         .offset(x:1,y:1)
                         .font(.title)
-                        .foregroundColor(Color("TextColor"))                    
+                        .foregroundColor(Color("TextColor"))
+                    
                 }
             })
             )
@@ -93,7 +93,7 @@ struct AddLocationView: View {
                     .scaledToFill()
                     .ignoresSafeArea(.all)
             )
-        }
+        } //End of Navigation View
         .preferredColorScheme(isDarkMode ? .dark : .light)
         .navigationBarHidden(true)
     }

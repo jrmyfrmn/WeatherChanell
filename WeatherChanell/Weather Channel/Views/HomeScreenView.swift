@@ -23,12 +23,6 @@ struct HomeScreenView: View {
                     
                     CurrentWeather()
                         .offset(x: 0, y: -20)
-                    
-                    ScrollView (.vertical) {
-                        ForEach((1...5), id:\.self) {day in
-                            WeatherDay(day: day)
-                        }
-                    }.offset(x: 0, y: -20)
                 }
                 .padding(.horizontal)
                 .background(
@@ -41,7 +35,7 @@ struct HomeScreenView: View {
                             self.showingSettingsView.toggle()
                         }) {
                             Image(systemName: "gearshape.fill")
-                                .foregroundColor(.white.opacity(0.7))
+                                .foregroundColor(Color("TextColor"))
                                 .padding()
                         })
                 )
@@ -49,21 +43,6 @@ struct HomeScreenView: View {
                     SettingsView()
                 }
             }
-            .overlay(
-                NavigationLink(destination: AddLocationView()) {
-                    ZStack{
-                        Image(systemName: "plus.circle.fill")
-                            .resizable()
-                            .scaledToFit()
-                            .background(Circle().fill(.clear))
-                            .frame(width: 30, height: 30, alignment: .center)
-                            .foregroundColor(.white.opacity(0.7))
-                    }
-                    .padding(.bottom, 10)
-                    .padding(.trailing, 20)
-                }
-                , alignment: .bottomTrailing
-            )
             .preferredColorScheme(isDarkMode ? .dark : .light)
         }.navigationBarHidden(true)
     }

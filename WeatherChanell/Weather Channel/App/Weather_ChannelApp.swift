@@ -14,7 +14,7 @@ struct Weather_ChannelApp: App {
     var body: some Scene {
         WindowGroup {
             //ContentView()
-            HomeScreenView()
+            WelcomeView()
                 .environmentObject(Store())
                 //.environment(\.managedObjectContext, persistenceController.container.viewContext)
         }

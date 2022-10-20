@@ -23,7 +23,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "DarkBG.png",
+      "filename" : "DarkBG.jpeg",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -50,7 +50,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "DarkBG copy.png",
+      "filename" : "DarkBG copy.jpeg",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -77,7 +77,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "DarkBG copy 2.png",
+      "filename" : "DarkBG copy 2.jpeg",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -18,3 +18,7 @@ struct AddLocation: Identifiable, Codable {
         ]
     }
 }
+
+struct AddLocations: Codable {
+    let items: AddLocation
+}

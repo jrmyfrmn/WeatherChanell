@@ -37,7 +37,7 @@ struct LocationList: View {
             
         }
         .padding(.vertical)
-        .foregroundColor(.black.opacity(0.7))
+        .foregroundColor(Color("TextColor"))
        .background(RoundedRectangle(cornerRadius: 10)
             .foregroundColor(Color("ThemeColor"))
            .frame(width: 345, height: 60)
