@@ -10,6 +10,8 @@ import CoreData
 
 struct AddLocationView: View {
     
+    @EnvironmentObject var store: Store
+    @State var isEditing = false
     @State var startCity = Constants.Strings.city
     @EnvironmentObject var dataStore: DataStore
     @ObservedObject var addLocationVM = AddLocationViewModel()
@@ -28,7 +30,8 @@ struct AddLocationView: View {
                             .font(.title)
                         
                         Spacer().frame(width: 5)
-                    }.padding(.horizontal)
+                    }.padding(EdgeInsets(top: 1, leading: 1, bottom: 1, trailing: 1))
+                    
                     ZStack {
                         
                      RoundedRectangle(cornerRadius: 15)
@@ -37,7 +40,7 @@ struct AddLocationView: View {
    
                         HStack {
                             Spacer()
-                            Image(systemName: "location.fill")
+                            Image(systemName: "magnifyingglass")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 20, height: 50)
@@ -45,14 +48,12 @@ struct AddLocationView: View {
                                 .foregroundColor(Color("TextColor"))
                             Spacer()
                             TextField("Search", text: $startCity)
-                                .padding(.leading, 10)
+                                .padding(1)
                                 .font(.title2)
                             Spacer()
                         }
                     }
-                    .padding(.horizontal)
-                    .padding(.vertical)
-                                        
+                                                            
                     List {
                         ForEach(locationList, id: \.self) { location in
                             NavigationLink {
@@ -60,13 +61,16 @@ struct AddLocationView: View {
                             }
                         label: { LocationList(locationName: location)
                         }.listRowBackground(Color.clear)
-                        }
-                    }.listStyle(.insetGrouped)
+                            
+                        }.onDelete(perform: store.deleteToDo)
+                        
+                    }
+                    .environment(\.editMode, .constant(self.isEditing ? EditMode.active : EditMode.inactive))
+                    .listStyle(.insetGrouped)
                 }
                 .padding(.horizontal)
                 
             }
-            
             .navigationBarItems(leading: Button(action: {}, label: {
                 NavigationLink(destination: HomeScreenView())
                 {
