@@ -29,14 +29,14 @@ struct AddLocationView: View {
                             .fontWeight(.bold)
                             .font(.title)
                         
-                        Spacer().frame(width: 5)
-                    }.padding(EdgeInsets(top: 1, leading: 1, bottom: 1, trailing: 1))
+                        //Spacer().frame(width: 5)
+                    }//.padding(EdgeInsets(top: 1, leading: 1, bottom: 1, trailing: 1))
                     
                     ZStack {
                         
                      RoundedRectangle(cornerRadius: 15)
                             .background(.ultraThinMaterial.opacity(0.1))
-                            .frame(width: 350, height: 55)
+                            .frame(width: 350, height: 45)
    
                         HStack {
                             Spacer()
@@ -46,11 +46,11 @@ struct AddLocationView: View {
                                 .frame(width: 20, height: 50)
                                 .padding()
                                 .foregroundColor(Color("TextColor"))
-                            Spacer()
-                            TextField("Search", text: $startCity)
+                            //Spacer()
+                            TextField("Search for a city", text: $startCity)
                                 .padding(1)
                                 .font(.title2)
-                            Spacer()
+                            //Spacer()
                         }
                     }
                                                             
@@ -68,8 +68,7 @@ struct AddLocationView: View {
                     .environment(\.editMode, .constant(self.isEditing ? EditMode.active : EditMode.inactive))
                     .listStyle(.insetGrouped)
                 }
-                .padding(.horizontal)
-                
+                .padding(.horizontal)                
             }
             .navigationBarItems(leading: Button(action: {}, label: {
                 NavigationLink(destination: HomeScreenView())
@@ -78,7 +77,6 @@ struct AddLocationView: View {
                         .offset(x:1,y:1)
                         .font(.title)
                         .foregroundColor(Color("TextColor"))
-                    
                 }
             })
             )
@@ -134,5 +132,3 @@ struct AddLocationView_Previews: PreviewProvider {
         AddLocationView().environmentObject(Store())
     }
 }
-
-

@@ -24,6 +24,7 @@ struct HomeScreenView: View {
                     CurrentWeather()
                         .offset(x: 0, y: -20)
                 }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .padding(.horizontal)
                 .background(
                     Image("Background")

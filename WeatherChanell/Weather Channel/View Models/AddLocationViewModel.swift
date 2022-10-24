@@ -10,9 +10,7 @@ import Foundation
 class AddLocationViewModel: ObservableObject {
     
     var location: String = ""
-    
     var id: String?
-    
     var updating: Bool {
         id != nil
     }

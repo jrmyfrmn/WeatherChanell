@@ -24,7 +24,7 @@ struct WelcomeView: View {
                             .bold()
                             .font(.title)
                         
-                        Text("Tap the share current location to know the weather in your area")
+                        Text("Tap the share current location button to know the weather in your area")
                             .padding()
                     }
                     .multilineTextAlignment(.center)
@@ -35,7 +35,7 @@ struct WelcomeView: View {
                             
                             RoundedRectangle(cornerRadius: 50)
                                 .background(.ultraThinMaterial.opacity(0.1))
-                                .frame(width: 300, height: 55)
+                                .frame(width: 255, height: 50)
                                 .foregroundColor(Color("ThemeColor").opacity(0.6))
                             
                             HStack {
@@ -44,9 +44,8 @@ struct WelcomeView: View {
                                     .resizable()
                                     .scaledToFit()
                                     .background(Circle().fill(.clear))
-                                    .frame(width: 20, height: 20, alignment: .center)
+                                    .frame(width: 15, height: 15, alignment: .center)
                                     .foregroundColor(Color("TextColor"))
-                                    .padding()
                                 
                                 Text("Share Current Location")
                                     .foregroundColor(Color("TextColor"))
@@ -55,9 +54,9 @@ struct WelcomeView: View {
                         .padding(.bottom, 10)
                     }
                 }
-                .padding(.bottom, 20)
+                .padding(.bottom, 10)
                 .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .frame(maxWidth: .infinity, maxHeight: .infinity) // bg size
                 .padding(.horizontal)
                 .background(
                     Image("Background")

@@ -40,7 +40,8 @@ struct LocationList: View {
         .foregroundColor(Color("TextColor"))
        .background(RoundedRectangle(cornerRadius: 10)
             .foregroundColor(Color("ThemeColor"))
-           .frame(width: 345, height: 60)
+           //.frame(width: 345, height: 60)
+           .frame(maxWidth: 400, maxHeight: 60)
         )
         .preferredColorScheme(isDarkMode ? .dark : .light)
     }

@@ -22,8 +22,8 @@ struct Next5DaysView: View {
                     Spacer()
                     
                         .foregroundColor(Color.white)
-                    Text("5-DAY FORECAST")
-                        .font(.largeTitle)
+                    Text("🗓 5-DAY FORECAST")
+                        .font(.title)
                         .fontWeight(.heavy)
                         .foregroundColor(Color("TextColor"))
                     
@@ -49,6 +49,7 @@ struct Next5DaysView: View {
                                     .offset(x:1,y:1)
                                     .font(.title)
                                     .foregroundColor(Color("TextColor"))
+                                    .padding(.bottom)
                             }
                         })
                         )
@@ -66,7 +67,7 @@ struct Next5DaysView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .background(Circle().fill(.clear))
-                                .frame(width: 30, height: 30, alignment: .center)
+                                .frame(width: 25, height: 25, alignment: .center)
                                 .foregroundColor(Color("TextColor"))
                                 .padding()
                         }
