@@ -53,7 +53,7 @@ struct AddLocationView: View {
                             //Spacer()
                         }
                     }
-                                                            
+                                                           
                     List {
                         ForEach(locationList, id: \.self) { location in
                             NavigationLink {
@@ -62,13 +62,16 @@ struct AddLocationView: View {
                         label: { LocationList(locationName: location)
                         }.listRowBackground(Color.clear)
                             
-                        }.onDelete(perform: store.deleteToDo)
+                        }
+                        .onDelete(perform: store.deleteToDo)
                         
                     }
-                    .environment(\.editMode, .constant(self.isEditing ? EditMode.active : EditMode.inactive))
+                    //.environment(\.editMode, .constant(self.isEditing ? EditMode.active : EditMode.inactive))
                     .listStyle(.insetGrouped)
+                    //.background(.ultraThinMaterial.opacity(0.1))
                 }
-                .padding(.horizontal)                
+                .padding(.horizontal)
+                
             }
             .navigationBarItems(leading: Button(action: {}, label: {
                 NavigationLink(destination: HomeScreenView())
