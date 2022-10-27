@@ -40,7 +40,7 @@ final class WeatherVM: ObservableObject {
         if let coord = coord {
             urlString = weatherAPI.getURLWeather(latitude: coord.latitude, longitude: coord.longitude)
         } else {
-            urlString = weatherAPI.getURLWeather(latitude: 14.284, longitude: 121.08889)
+            urlString = weatherAPI.getURLWeather(latitude: 14.5472, longitude: 121.0637)
         }
         getWeatherInternal(city: city, for: urlString)
     }

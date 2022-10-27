@@ -28,9 +28,7 @@ struct AddLocationView: View {
                             .foregroundColor(Color("TextColor"))
                             .fontWeight(.bold)
                             .font(.title)
-                        
-                        //Spacer().frame(width: 5)
-                    }//.padding(EdgeInsets(top: 1, leading: 1, bottom: 1, trailing: 1))
+                    }
                     
                     ZStack {
                         
@@ -66,7 +64,7 @@ struct AddLocationView: View {
                         .onDelete(perform: store.deleteToDo)
                         
                     }
-                    //.environment(\.editMode, .constant(self.isEditing ? EditMode.active : EditMode.inactive))
+                    .environment(\.editMode, .constant(self.isEditing ? EditMode.active : EditMode.inactive))
                     .listStyle(.insetGrouped)
                     //.background(.ultraThinMaterial.opacity(0.1))
                 }

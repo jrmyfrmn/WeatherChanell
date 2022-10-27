@@ -198,7 +198,7 @@ struct ForecastViewModel: Identifiable, Codable {
         return String(format: "%.1f", roundOf)
     }
     
-    func getWeatherIconFor(icon: String) -> String { // This was Image before replacing with String
+    func getWeatherIconFor(icon: String) -> String {
         switch icon {
         case "01d":
             return String("sun")

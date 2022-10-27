@@ -11,6 +11,6 @@ import SwiftUI
 class Constants {
     
     class Strings {
-        static var city = "Manila"
+        static var city = "Makati"
     }
 }
