@@ -21,56 +21,58 @@ struct AddLocationView: View {
     
     var body: some View {
         NavigationView {
-            ZStack {
-                VStack (spacing: 5) {
-                    HStack {
-                        Text("Location List")
-                            .foregroundColor(Color("TextColor"))
-                            .fontWeight(.bold)
-                            .font(.title)
-                    }
-                    
-                    ZStack {
-                        
-                     RoundedRectangle(cornerRadius: 15)
-                            .background(.ultraThinMaterial.opacity(0.1))
-                            .frame(width: 350, height: 45)
-   
+                ZStack {
+                    VStack (spacing: 5) {
                         HStack {
-                            Spacer()
-                            Image(systemName: "magnifyingglass")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 20, height: 50)
-                                .padding()
+                            Text("Location List")
                                 .foregroundColor(Color("TextColor"))
-                            //Spacer()
-                            TextField("Search for a city", text: $startCity)
-                                .padding(1)
-                                .font(.title2)
-                            //Spacer()
+                                .fontWeight(.bold)
+                                .font(.title)
                         }
-                    }
-                                                           
-                    List {
-                        ForEach(locationList, id: \.self) { location in
-                            NavigationLink {
-                                HomeScreenView()
+                        
+                        ZStack {
+                            
+                         RoundedRectangle(cornerRadius: 15)
+                                .background(.ultraThinMaterial.opacity(0.1))
+                                .frame(width: 350, height: 45)
+       
+                            HStack {
+                                Spacer()
+                                Image(systemName: "magnifyingglass")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 20, height: 50)
+                                    .padding()
+                                    .foregroundColor(Color("TextColor"))
+                                //Spacer()
+                                TextField("Search for a city", text: $startCity)
+                                    .padding(1)
+                                    .font(.title2)
+                                //Spacer()
                             }
-                        label: { LocationList(locationName: location)
-                        }.listRowBackground(Color.clear)
+                        }
+                                                               
+                        List {
+                            ForEach(locationList, id: \.self) { location in
+                                NavigationLink {
+                                    HomeScreenView()
+                                }
+                            label: { LocationList(locationName: location)
+                            }.listRowBackground(Color.clear)
+                                
+                            }
+                            .onDelete(perform: { indexSet in locationList.remove(atOffsets: indexSet)
+                            })
+                            //.onDelete(perform: store.deleteToDo)
                             
                         }
-                        .onDelete(perform: store.deleteToDo)
-                        
+                        .environment(\.editMode, .constant(self.isEditing ? EditMode.active : EditMode.inactive))
+                        .listStyle(.insetGrouped)
+                        //.background(.ultraThinMaterial.opacity(0.1))
                     }
-                    .environment(\.editMode, .constant(self.isEditing ? EditMode.active : EditMode.inactive))
-                    .listStyle(.insetGrouped)
-                    //.background(.ultraThinMaterial.opacity(0.1))
+                    .padding(.horizontal)
+                    
                 }
-                .padding(.horizontal)
-                
-            }
             .navigationBarItems(leading: Button(action: {}, label: {
                 NavigationLink(destination: HomeScreenView())
                 {
