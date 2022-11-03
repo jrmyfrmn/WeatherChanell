@@ -16,15 +16,15 @@ struct SplashScreenView: View {
             VStack {
                 VStack {
                     
-                    Image("AppIcon")
+                    Image("launchScreen")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 150)
                         .cornerRadius(10)
-                    Text("Weather Channel")
-                        .font(.largeTitle)
-                        .fontWeight(.heavy)
-                        .foregroundColor(.gray.opacity(0.95))
+//                    Text("Weather Channel")
+//                        .font(.largeTitle)
+//                        .fontWeight(.heavy)
+//                        .foregroundColor(.gray.opacity(0.95))
                     
                 }
                 .scaleEffect(size)

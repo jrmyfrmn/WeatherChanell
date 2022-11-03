@@ -10,14 +10,13 @@ import CoreData
 
 struct AddLocationView: View {
     
-    @EnvironmentObject var store: Store
-    @State var isEditing = false
-    @State var startCity = Constants.Strings.city
-    @EnvironmentObject var dataStore: DataStore
-    @ObservedObject var addLocationVM = AddLocationViewModel()
-    @AppStorage("isDarkMode") private var isDarkMode = false
-    @Environment(\.presentationMode) var presentationMode
     @State private var locationList: [String] = []
+    @State var myWeather: ForecastViewModel!
+    @StateObject private var addCityVM = AddCityViewModel()
+    @AppStorage("isDarkMode") private var isDarkMode = false
+    @EnvironmentObject var store: Store
+    @State private var activeSheet: Sheets?
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         NavigationView {
@@ -44,34 +43,28 @@ struct AddLocationView: View {
                                     .frame(width: 20, height: 50)
                                     .padding()
                                     .foregroundColor(Color("TextColor"))
-                                //Spacer()
-                                TextField("Search for a city", text: $startCity)
+
+                                TextField("Search for a city", text: $addCityVM.city)
                                     .padding(1)
                                     .font(.title2)
-                                //Spacer()
                             }
-                        }
-                                                               
+                        }                                                               
                         List {
-                            ForEach(locationList, id: \.self) { location in
+                            ForEach(store.weatherLocList, id: \.cityName) { myWeather in
                                 NavigationLink {
                                     HomeScreenView()
                                 }
-                            label: { LocationList(locationName: location)
-                            }.listRowBackground(Color.clear)
+                            label: { LocationList(myWeather: myWeather)
+
+                            }
+                            .listRowBackground(Color.clear)
                                 
                             }
-                            .onDelete(perform: { indexSet in locationList.remove(atOffsets: indexSet)
-                            })
-                            //.onDelete(perform: store.deleteToDo)
-                            
-                        }
-                        .environment(\.editMode, .constant(self.isEditing ? EditMode.active : EditMode.inactive))
+                            .onDelete(perform: store.deleteToDo)
+                        } // End of List
                         .listStyle(.insetGrouped)
-                        //.background(.ultraThinMaterial.opacity(0.1))
                     }
                     .padding(.horizontal)
-                    
                 }
             .navigationBarItems(leading: Button(action: {}, label: {
                 NavigationLink(destination: HomeScreenView())
@@ -84,8 +77,9 @@ struct AddLocationView: View {
             })
             )
             .navigationBarItems(trailing: Button( action: {
-                Constants.Strings.city = startCity
-                locationList.append(startCity)
+                addCityVM.getCity { myWeather in
+                    store.addWeather(myWeather)
+                }
             }) {
                 Image(systemName: "plus.circle.fill").font(.system(size: 20)).padding(10)
                     .offset(x:1,y:1)
@@ -96,37 +90,10 @@ struct AddLocationView: View {
                 Image("Background")
                     .resizable()
                     .scaledToFill()
-                    .ignoresSafeArea(.all)
-            )
+                    .ignoresSafeArea(.all))
         } //End of Navigation View
         .preferredColorScheme(isDarkMode ? .dark : .light)
         .navigationBarHidden(true)
-    }
-}
-
-extension AddLocationView {
-    func updateToDo() {
-        let loc = AddLocation(id: addLocationVM.id!, location: addLocationVM.location)
-        dataStore.updateLocation(loc)
-        presentationMode.wrappedValue.dismiss()
-    }
-    
-    func addToDo() {
-        let loc = AddLocation(location: addLocationVM.location)
-        dataStore.addLocation(loc)
-        presentationMode.wrappedValue.dismiss()
-    }
-    
-    var cancelButton: some View {
-        Button("Cancel") {
-            presentationMode.wrappedValue.dismiss()
-        }
-    }
-    
-    var updateSaveButton: some View {
-        Button( addLocationVM.updating ? "Update" : "Save",
-                action: addLocationVM.updating ? updateToDo : addToDo)
-        .disabled(addLocationVM.isDisabled)
     }
 }
 

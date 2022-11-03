@@ -10,18 +10,22 @@ import Foundation
 class Store: ObservableObject {
     
     @Published var tempUnit: TemperatureUnit = .celsius
-    @Published var weatherLocList: [ForecastViewModel] = []
-    @Published var currentW: [ForecastViewModel] = []
+    @Published var weatherLocList: [WeatherViewModel] = []
     
     init() {
         tempUnit = UserDefaults.standard.unit
+        print(FileManager.docDirURL.path)
+        if FileManager().docExist(named: fileName) {
+            loadWeather()
+        }
     }
     
-    func addWeather(_ weather: ForecastViewModel) {
+    func addWeather(_ weather: WeatherViewModel) {
         weatherLocList.append(weather)
+        saveWeather()
     }
     
-    func updateToDo(_ myWeather: ForecastViewModel) {
+    func updateToDo(_ myWeather: WeatherViewModel) {
         guard let index = weatherLocList.firstIndex(where: { $0.id == myWeather.id}) else { return }
         weatherLocList[index] = myWeather
         saveWeather()
@@ -38,7 +42,7 @@ class Store: ObservableObject {
             case .success(let data):
                 let decoder = JSONDecoder()
                 do {
-                    weatherLocList = try decoder.decode([ForecastViewModel].self, from: data)
+                    weatherLocList = try decoder.decode([WeatherViewModel].self, from: data)
                 } catch {
                     print(error.localizedDescription)
                 }
@@ -63,57 +67,4 @@ class Store: ObservableObject {
             print(error.localizedDescription)
         }
     }
-    
-    // MARK: - Current
-
-    func addCurrent(_ myWeather: ForecastViewModel) {
-        currentW.append(myWeather)
-        saveCurrent()
-    }
-    
-    func updateCurrent(_ myWeather: ForecastViewModel) {
-        guard let index = currentW.firstIndex(where: { $0.id == myWeather.id}) else { return }
-        currentW[index] = myWeather
-        saveCurrent()
-    }
-    
-    func deleteCurrent(at indexSet: IndexSet) {
-        currentW.remove(atOffsets: indexSet)
-        saveCurrent()
-    }
-    
-    func loadCurrent() {
-        FileManager().readDocument(docName: currentFile) { (result) in
-            switch result {
-            case .success(let data):
-                let decoder = JSONDecoder()
-                do {
-                    currentW = try decoder.decode([ForecastViewModel].self, from: data)
-                } catch {
-                    print(error.localizedDescription)
-                }
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-    }
-    
-    func saveCurrent() {
-        print("Saving currentW to file system")
-        let encoder = JSONEncoder()
-        do {
-            let data = try encoder.encode(currentW)
-            let jsonString = String(decoding: data, as: UTF8.self)
-            FileManager().saveDocument(contents: jsonString, docName: currentFile) { (error) in
-                if let error = error {
-                    print(error.localizedDescription)
-                }
-            }
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
 }
-
-
-

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class AddLocationViewModel: ObservableObject {
     
@@ -198,46 +199,46 @@ struct ForecastViewModel: Identifiable, Codable {
         return String(format: "%.1f", roundOf)
     }
     
-    func getWeatherIconFor(icon: String) -> String {
+    func getWeatherIconFor(icon: String) -> Image {
         switch icon {
         case "01d":
-            return String("sun")
+            return Image("sun")
         case "01n":
-            return String("moon")
+            return Image("moon")
         case "02d":
-            return String("cloudSun")
+            return Image("cloudSun")
         case "02n":
-            return String("cloudMoon")
+            return Image("cloudMoon")
         case "03d":
-            return String("cloud")
+            return Image("cloud")
         case "03n":
-            return String("cloudMoon")
+            return Image("cloudMoon")
         case "04d":
-            return String("cloudMax")
+            return Image("cloudMax")
         case "04n":
-            return String("cloudMoon")
+            return Image("cloudMoon")
         case "09d":
-            return String("rainy")
+            return Image("rainy")
         case "09n":
-            return String("rainy")
+            return Image("rainy")
         case "10d":
-            return String("rainySun")
+            return Image("rainySun")
         case "10n":
-            return String("rainyMoon")
+            return Image("rainyMoon")
         case "11d":
-            return String("thunderstormSun")
+            return Image("thunderstormSun")
         case "11n":
-            return String("thunderstormMoon")
+            return Image("thunderstormMoon")
         case "13d":
-            return String("snowy")
+            return Image("snowy")
         case "13n":
-            return String("snowy-2")
+            return Image("snowy-2")
         case "50d":
-            return String("tornado")
+            return Image("tornado")
         case "50n":
-            return String("tornado")
+            return Image("tornado")
         default:
-            return String("sun")
+            return Image("sun")
         }
     }
 }

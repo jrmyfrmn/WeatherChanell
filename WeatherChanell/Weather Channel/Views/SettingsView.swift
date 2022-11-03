@@ -57,8 +57,7 @@ struct SettingsView: View {
                             .pickerStyle(SegmentedPickerStyle())
                             
                             Spacer()
-                        }
-                        
+                        }                        
                     }
                 }
                 .listStyle(GroupedListStyle())
