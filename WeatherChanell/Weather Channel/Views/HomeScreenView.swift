@@ -13,6 +13,7 @@ struct HomeScreenView: View {
     @State private var activeSheet: Sheets?
     @EnvironmentObject var store: Store
     @AppStorage("isDarkMode") private var isDarkMode = false
+    @StateObject var locationManager = LocationManager()
     
     var body: some View {
         NavigationView {

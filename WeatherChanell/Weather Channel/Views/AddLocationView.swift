@@ -51,16 +51,20 @@ struct AddLocationView: View {
                         }                                                               
                         List {
                             ForEach(store.weatherLocList, id: \.cityName) { myWeather in
-                                NavigationLink {
-                                    HomeScreenView()
+                                NavigationLink(destination: DetailScreen(myWeather: myWeather)) {
+                                    WeatherCell(myWeather: myWeather)
                                 }
-                            label: { LocationList(myWeather: myWeather)
-
-                            }
-                            .listRowBackground(Color.clear)
+//                                NavigationLink {
+//                                    HomeScreenView()
+//                                }
+//                            label: { LocationList(myWeather: myWeather)
+//
+//                            }
+//                            .listRowBackground(Color.clear)
                                 
                             }
                             .onDelete(perform: store.deleteToDo)
+                            .listRowBackground(Color.clear)
                         } // End of List
                         .listStyle(.insetGrouped)
                     }

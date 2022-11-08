@@ -37,6 +37,7 @@ struct Next5DaysView: View {
                     }.offset(x: 0, y: -20)
                 }
                 .padding(.horizontal)
+                .padding(.bottom, 10)
                 .background(
                     Image("Background")
                         .resizable()
