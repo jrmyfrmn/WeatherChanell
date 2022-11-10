@@ -35,9 +35,6 @@ struct LocationList: View {
                 
                 VStack (alignment: .leading) {
                     Text("\(myWeather.getTempByUnit(unit: store.tempUnit))° \(String(store.tempUnit.displayText.prefix(1)))")
-//                    Text("\(myWeather.getTempByUnit(unit: store.tempUnit)[0]) °\(String(store.tempUnit.displayText.prefix(1)))")
-//                    Text("\(myWeather.dailyConditions[0].uppercased())")
-                        
                 }
                 .font(.footnote)
                 .padding()
@@ -46,7 +43,7 @@ struct LocationList: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .foregroundColor(Color("ThemeColor"))
             .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
-            //.background(RoundedRectangle(cornerRadius: 30, style: .continuous).stroke())
+            .background(RoundedRectangle(cornerRadius: 30, style: .continuous).stroke())
             .preferredColorScheme(isDarkMode ? .dark : .light)
         }
         }

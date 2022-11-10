@@ -44,7 +44,6 @@ struct ForecastList: View {
                         }.padding()
                         .frame(maxWidth: .infinity, alignment: .center)
                         .padding(.top)
-                        //.padding(.bottom)
                         .background(RoundedRectangle(cornerRadius: 30, style: .continuous).stroke())
                         .foregroundColor(Color("TextColor"))
                         .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 30, style: .continuous))
@@ -65,7 +64,8 @@ struct ForecastList: View {
                     ForEach((1...5), id:\.self) {day in
                         WeatherDay(day: day)
                     }
-                }.offset(x: 0, y: -5)
+                }
+                .offset(x: 0, y: -5)
                 
                 }
                 .padding()                
@@ -78,8 +78,6 @@ struct ForecastList: View {
                         .scaledToFill()
                         .ignoresSafeArea(.all)
                 )
-
-                    
                 .navigationBarItems(leading: Button(action: {}, label: {
                     NavigationLink(destination: AddLocationView())
                     {
@@ -97,7 +95,6 @@ struct ForecastList: View {
 struct ForecastList_Previews: PreviewProvider {
     static var previews: some View {
         AddLocationView().environmentObject(Store())
-//        WeatherCell(city: "San Pablo City")
     }
 }
 
