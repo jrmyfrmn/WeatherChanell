@@ -41,7 +41,8 @@ struct ForecastList: View {
                                     .fontWeight(.semibold)
                                 
                             }
-                        }.padding()
+                        }
+                        .padding()
                         .frame(maxWidth: .infinity, alignment: .center)
                         .padding(.top)
                         .background(RoundedRectangle(cornerRadius: 30, style: .continuous).stroke())
@@ -61,9 +62,18 @@ struct ForecastList: View {
                 Spacer()
                 
                 ScrollView (.vertical) {
-                    ForEach((1...5), id:\.self) {day in
-                        WeatherDay(day: day)
-                    }
+                    DailyRow(logo: "\(myWeather.getWeatherIconForCity(icon: myWeather.icon))", day: "\(weatherVM.dailyDays[0])", temp: "\(myWeather.getTempByUnit(unit: store.tempUnit))°\(String(store.tempUnit.displayText.prefix(1)))")
+                    Divider()
+                    DailyRow(logo: "\(myWeather.getWeatherIconForCity(icon: myWeather.icon))", day: "\(weatherVM.dailyDays[1])", temp: "\(myWeather.getTempByUnit(unit: store.tempUnit))°\(String(store.tempUnit.displayText.prefix(1)))")
+                    Divider()
+                    DailyRow(logo: "\(myWeather.getWeatherIconForCity(icon: myWeather.icon))", day: "\(weatherVM.dailyDays[2])", temp: "\(myWeather.getTempByUnit(unit: store.tempUnit))°\(String(store.tempUnit.displayText.prefix(1)))")
+                    Divider()
+                    DailyRow(logo: "\(myWeather.getWeatherIconForCity(icon: myWeather.icon))", day: "\(weatherVM.dailyDays[3])", temp: "\(myWeather.getTempByUnit(unit: store.tempUnit))°\(String(store.tempUnit.displayText.prefix(1)))")
+                    Divider()
+                    DailyRow(logo: "\(myWeather.getWeatherIconForCity(icon: myWeather.icon))", day: "\(weatherVM.dailyDays[4])", temp: "\(myWeather.getTempByUnit(unit: store.tempUnit))°\(String(store.tempUnit.displayText.prefix(1)))")
+//                    ForEach((1...5), id:\.self) {day in
+//                        WeatherDay(day: day)
+//                    }
                 }
                 .offset(x: 0, y: -5)
                 

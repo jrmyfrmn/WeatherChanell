@@ -54,13 +54,7 @@ struct AddLocationView: View {
                                 NavigationLink(destination: DetailScreen(myWeather: myWeather)) {
                                     WeatherCell(myWeather: myWeather)
                                 }
-//                                NavigationLink {
-//                                    HomeScreenView()
-//                                }
-//                            label: { LocationList(myWeather: myWeather)
-//
-//                            }
-//                            .listRowBackground(Color.clear)
+                                .listRowBackground(Color.clear)
                                 
                             }
                             .onDelete(perform: store.deleteToDo)

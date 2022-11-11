@@ -64,6 +64,7 @@
 		128F4F7F291A37C00004C14B /* ForecastList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128F4F7E291A37C00004C14B /* ForecastList.swift */; };
 		128F4F81291A380A0004C14B /* DetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128F4F80291A380A0004C14B /* DetailScreen.swift */; };
 		128F4F83291A38AD0004C14B /* FailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128F4F82291A38AD0004C14B /* FailedView.swift */; };
+		128F4F87291E4B870004C14B /* DailyRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128F4F86291E4B870004C14B /* DailyRow.swift */; };
 		12B31B8728F6A8760013331B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12B31B8628F6A8750013331B /* Assets.xcassets */; };
 		12B31B8928F6A8850013331B /* Preview Content in Resources */ = {isa = PBXBuildFile; fileRef = 12B31B8828F6A8850013331B /* Preview Content */; };
 /* End PBXBuildFile section */
@@ -127,6 +128,7 @@
 		128F4F7E291A37C00004C14B /* ForecastList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastList.swift; sourceTree = "<group>"; };
 		128F4F80291A380A0004C14B /* DetailScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailScreen.swift; sourceTree = "<group>"; };
 		128F4F82291A38AD0004C14B /* FailedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FailedView.swift; sourceTree = "<group>"; };
+		128F4F86291E4B870004C14B /* DailyRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyRow.swift; sourceTree = "<group>"; };
 		12B31B8628F6A8750013331B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "Weather Channel/Assets.xcassets"; sourceTree = "<group>"; };
 		12B31B8828F6A8850013331B /* Preview Content */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Preview Content"; path = "Weather Channel/Preview Content"; sourceTree = "<group>"; };
 		5A31A178568315D703005227 /* Pods-Weather Channel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather Channel.release.xcconfig"; path = "Target Support Files/Pods-Weather Channel/Pods-Weather Channel.release.xcconfig"; sourceTree = "<group>"; };
@@ -167,11 +169,11 @@
 		12264EF128F5597D007B10F8 /* Details */ = {
 			isa = PBXGroup;
 			children = (
+				12264F0528F65FE5007B10F8 /* LocationList.swift */,
+				12264F0128F65FB2007B10F8 /* WeatherDay.swift */,
 				12264EFD28F65F7C007B10F8 /* CurrentWeather.swift */,
 				12264EFB28F65F5A007B10F8 /* CurrentLocation.swift */,
-				12264F0528F65FE5007B10F8 /* LocationList.swift */,
 				12264EFF28F65F9C007B10F8 /* WeatherPane.swift */,
-				12264F0128F65FB2007B10F8 /* WeatherDay.swift */,
 				12264F0728F65FF8007B10F8 /* TopNavBar.swift */,
 				12264F0928F6600D007B10F8 /* About.swift */,
 			);
@@ -261,6 +263,7 @@
 				128F4F7A291A37330004C14B /* WeatherCell.swift */,
 				128F4F80291A380A0004C14B /* DetailScreen.swift */,
 				128F4F82291A38AD0004C14B /* FailedView.swift */,
+				128F4F86291E4B870004C14B /* DailyRow.swift */,
 				128F4F7E291A37C00004C14B /* ForecastList.swift */,
 			);
 			path = Views;
@@ -269,10 +272,10 @@
 		125B539A28CF04F90046B868 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
-				12264EF328F55AE8007B10F8 /* weatherVM.swift */,
 				12264EF528F55B22007B10F8 /* AddLocationViewModel.swift */,
-				120997DB2913AE75002566FE /* AddCityViewModel.swift */,
+				12264EF328F55AE8007B10F8 /* weatherVM.swift */,
 				128F4F7C291A37A50004C14B /* DetailedViewModel.swift */,
+				120997DB2913AE75002566FE /* AddCityViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 				12264F0C28F66044007B10F8 /* AddLocation.swift in Sources */,
 				12264F0228F65FB2007B10F8 /* WeatherDay.swift in Sources */,
 				12264F1228F66128007B10F8 /* UserDefault.swift in Sources */,
+				128F4F87291E4B870004C14B /* DailyRow.swift in Sources */,
 				12264F1028F660B5007B10F8 /* Time.swift in Sources */,
 				12264EFC28F65F5A007B10F8 /* CurrentLocation.swift in Sources */,
 				125B538728CEFF330046B868 /* ContentView.swift in Sources */,

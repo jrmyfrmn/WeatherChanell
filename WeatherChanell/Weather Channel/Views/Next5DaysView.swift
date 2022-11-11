@@ -55,11 +55,10 @@ struct Next5DaysView: View {
                         })
                         )
                 )
-                .sheet(isPresented: $showingSettingsView) {
-                    SettingsView()
-                }
+//                .sheet(isPresented: $showingSettingsView) {
+//                    SettingsView()
+//                }
             }
-            
             .overlay(
                 NavigationLink(destination: AddLocationView()) {
                     ZStack{
