@@ -19,11 +19,11 @@ struct HomeScreenView: View {
         NavigationView {
             ZStack {
                 VStack (spacing: 20) {
-                    CurrentLocation()
-                        .offset(x: 0, y: -20)
-                    
-                    CurrentWeather()
-                        .offset(x: 0, y: -20)
+//                    CurrentLocation()
+//                        .offset(x: 0, y: -20)
+//
+//                    CurrentWeather()
+//                        .offset(x: 0, y: -20)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .padding(.horizontal)

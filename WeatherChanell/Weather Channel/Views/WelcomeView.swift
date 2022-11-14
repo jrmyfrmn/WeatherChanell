@@ -30,36 +30,36 @@ struct WelcomeView: View {
                     .multilineTextAlignment(.center)
                     .padding()
  
-//                    LocationButton(.shareCurrentLocation) {
-//                        locationManager.requestLocation()
-//                    }
-//                    .cornerRadius(30)
-//                    .symbolVariant(.fill)
-//                    .foregroundColor(.white)
-                    
-                    NavigationLink(destination: HomeScreenView()) {
-                        ZStack{
-
-                            RoundedRectangle(cornerRadius: 50)
-                                .background(.ultraThinMaterial.opacity(0.1))
-                                .frame(width: 255, height: 50)
-                                .foregroundColor(Color("ThemeColor").opacity(0.6))
-
-                            HStack {
-
-                                Image(systemName: "location.fill")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .background(Circle().fill(.clear))
-                                    .frame(width: 15, height: 15, alignment: .center)
-                                    .foregroundColor(Color("TextColor"))
-
-                                Text("Share Current Location")
-                                    .foregroundColor(Color("TextColor"))
-                            }
-                        }
-                        .padding(.bottom, 10)
+                    LocationButton(.shareCurrentLocation) {
+                        locationManager.requestLocation()
                     }
+                    .cornerRadius(30)
+                    .symbolVariant(.fill)
+                    .foregroundColor(.white)
+                    
+//                    NavigationLink(destination: HomeScreenView()) {
+//                        ZStack{
+//
+//                            RoundedRectangle(cornerRadius: 50)
+//                                .background(.ultraThinMaterial.opacity(0.1))
+//                                .frame(width: 255, height: 50)
+//                                .foregroundColor(Color("ThemeColor").opacity(0.6))
+//
+//                            HStack {
+//
+//                                Image(systemName: "location.fill")
+//                                    .resizable()
+//                                    .scaledToFit()
+//                                    .background(Circle().fill(.clear))
+//                                    .frame(width: 15, height: 15, alignment: .center)
+//                                    .foregroundColor(Color("TextColor"))
+//
+//                                Text("Share Current Location")
+//                                    .foregroundColor(Color("TextColor"))
+//                            }
+//                        }
+//                        .padding(.bottom, 10)
+//                    }
                 }
                 .padding(.bottom, 10)
                 .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
