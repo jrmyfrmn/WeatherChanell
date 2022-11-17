@@ -5,18 +5,17 @@
 //  Created by jeremy.fermin on 9/12/22.
 //
 
+
 import SwiftUI
 
 @main
-struct Weather_ChannelApp: App {
-    //let persistenceController = PersistenceController.shared
-
+struct ForecastingWeatherApp: App {
     var body: some Scene {
         WindowGroup {
-            //ContentView()
+            let weatherService = WeatherService()
+            let currentCityVM = CurrentCityViewModel(weatherService: WeatherService())
             SplashScreenView()
-                .environmentObject(Store())
-                //.environment(\.managedObjectContext, persistenceController.container.viewContext)
+               .environmentObject(Store())
         }
     }
 }

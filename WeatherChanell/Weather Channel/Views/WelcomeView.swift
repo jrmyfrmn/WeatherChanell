@@ -1,42 +1,42 @@
+////
+////  WelcomeView.swift
+////  Weather Channel
+////
+////  Created by jeremy.fermin on 10/20/22.
+////
 //
-//  WelcomeView.swift
-//  Weather Channel
+//import SwiftUI
+//import CoreLocationUI
 //
-//  Created by jeremy.fermin on 10/20/22.
+//struct WelcomeView: View {
 //
-
-import SwiftUI
-import CoreLocationUI
-
-struct WelcomeView: View {
-    
-    @EnvironmentObject var locationManager: LocationManager
-    @AppStorage("isDarkMode") private var isDarkMode = false
-    
-    var body: some View {
-        NavigationView {
-            ZStack {
-                VStack {
-                    
-                    VStack(spacing: 20) {
-                        
-                        Text("Welcome to Weather Channel!")
-                            .bold()
-                            .font(.title)
-                        
-                        Text("Tap the share current location button to know the weather in your area")
-                            .padding()
-                    }
-                    .multilineTextAlignment(.center)
-                    .padding()
- 
-                    LocationButton(.shareCurrentLocation) {
-                        locationManager.requestLocation()
-                    }
-                    .cornerRadius(30)
-                    .symbolVariant(.fill)
-                    .foregroundColor(.white)
-                    
+//    @EnvironmentObject var locationManager: LocationManager
+//    @AppStorage("isDarkMode") private var isDarkMode = false
+//
+//    var body: some View {
+//        NavigationView {
+//            ZStack {
+//                VStack {
+//
+//                    VStack(spacing: 20) {
+//
+//                        Text("Welcome to Weather Channel!")
+//                            .bold()
+//                            .font(.title)
+//
+//                        Text("Tap the share current location button to know the weather in your area")
+//                            .padding()
+//                    }
+//                    .multilineTextAlignment(.center)
+//                    .padding()
+//
+////                    LocationButton(.shareCurrentLocation) {
+////                        locationManager.requestLocation()
+////                    }
+////                    .cornerRadius(30)
+////                    .symbolVariant(.fill)
+////                    .foregroundColor(.white)
+//
 //                    NavigationLink(destination: HomeScreenView()) {
 //                        ZStack{
 //
@@ -60,26 +60,26 @@ struct WelcomeView: View {
 //                        }
 //                        .padding(.bottom, 10)
 //                    }
-                }
-                .padding(.bottom, 10)
-                .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
-                .frame(maxWidth: .infinity, maxHeight: .infinity) // bg size
-                .padding(.horizontal)
-                .background(
-                    Image("Background")
-                        .resizable()
-                        .scaledToFill()
-                        .ignoresSafeArea(.all)
-                )
-            } // End of Navigation View
-            .preferredColorScheme(isDarkMode ? .dark : .light)
-            .navigationBarHidden(true)
-        }
-    }
-}
-
-struct WelcomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        WelcomeView()
-    }
-}
+//                }
+//                .padding(.bottom, 10)
+//                .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+//                .frame(maxWidth: .infinity, maxHeight: .infinity) // bg size
+//                .padding(.horizontal)
+//                .background(
+//                    Image("Background")
+//                        .resizable()
+//                        .scaledToFill()
+//                        .ignoresSafeArea(.all)
+//                )
+//            } // End of Navigation View
+//            .preferredColorScheme(isDarkMode ? .dark : .light)
+//            .navigationBarHidden(true)
+//        }
+//    }
+//}
+//
+//struct WelcomeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        WelcomeView()
+//    }
+//}

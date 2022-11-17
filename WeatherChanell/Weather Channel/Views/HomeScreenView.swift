@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct HomeScreenView: View {
     
@@ -13,17 +14,16 @@ struct HomeScreenView: View {
     @State private var activeSheet: Sheets?
     @EnvironmentObject var store: Store
     @AppStorage("isDarkMode") private var isDarkMode = false
-    @StateObject var locationManager = LocationManager()
     
     var body: some View {
         NavigationView {
             ZStack {
                 VStack (spacing: 20) {
-//                    CurrentLocation()
-//                        .offset(x: 0, y: -20)
-//
-//                    CurrentWeather()
-//                        .offset(x: 0, y: -20)
+                    CurrentLocation()
+                        .offset(x: 0, y: -20)
+                    
+                    CurrentWeather()
+                        .offset(x: 0, y: -20)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .padding(.horizontal)

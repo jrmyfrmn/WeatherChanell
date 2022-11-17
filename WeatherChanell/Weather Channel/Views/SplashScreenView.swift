@@ -9,7 +9,7 @@ struct SplashScreenView: View {
         
         if isActive {
             
-            WelcomeView()
+            HomeScreenView()
             
         } else {
             

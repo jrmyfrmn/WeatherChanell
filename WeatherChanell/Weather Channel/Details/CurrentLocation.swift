@@ -9,17 +9,19 @@ import SwiftUI
 
 struct CurrentLocation: View {
 
-    @ObservedObject var weatherVM = WeatherVM()
     @AppStorage("isDarkMode") private var isDarkMode = false
+    @ObservedObject var weatherVM = WeatherVM()
+    @ObservedObject var currentCityVM = CurrentCityViewModel(weatherService: WeatherService())
     
     var body: some View {
         VStack {
-            Text("\(weatherVM.city)")
+            Text(currentCityVM.cityName)
                 .font(.largeTitle)
                 .fontWeight(.heavy)
             
             Text("\(weatherVM.currentDate)")
         }
+        .onAppear(perform: currentCityVM.refresh)
         .foregroundColor(Color("TextColor"))
         .preferredColorScheme(isDarkMode ? .dark : .light)
     }
@@ -27,7 +29,7 @@ struct CurrentLocation: View {
 
 struct CurrentLocation_Previews: PreviewProvider {
     static var previews: some View {
-        CurrentLocation()
+        CurrentLocation(currentCityVM: CurrentCityViewModel(weatherService: WeatherService()))
             .previewLayout(.sizeThatFits)
     }
 }
