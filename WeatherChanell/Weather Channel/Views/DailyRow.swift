@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DailyRow: View {
-//MARK: - Property
+
     var logo: String
     var day: String
     var temp: String

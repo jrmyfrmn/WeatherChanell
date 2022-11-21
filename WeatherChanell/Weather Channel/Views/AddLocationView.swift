@@ -30,7 +30,6 @@ struct AddLocationView: View {
                         }
                         
                         ZStack {
-                            
                          RoundedRectangle(cornerRadius: 15)
                                 .background(.ultraThinMaterial.opacity(0.1))
                                 .frame(width: 350, height: 45)

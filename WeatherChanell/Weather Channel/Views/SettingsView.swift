@@ -29,7 +29,7 @@ struct SettingsView: View {
                     
                     Section(header:
                                 HStack {
-                        Text("Apperance")
+                        Text("Appearance")
                     }) {
                         Picker("Theme", selection: $isDarkMode) {
                             Text("Light Mode")

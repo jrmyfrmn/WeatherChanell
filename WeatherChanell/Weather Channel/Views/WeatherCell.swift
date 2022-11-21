@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct WeatherCell: View {
-//MARK: - Property
+
     let myWeather: WeatherViewModel
     @EnvironmentObject var store: Store
-//MARK: - Body
+
     var body: some View {
         HStack (alignment: .center){
             Spacer().frame(width: 10)

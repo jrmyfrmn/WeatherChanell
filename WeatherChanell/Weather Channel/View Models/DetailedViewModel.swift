@@ -8,13 +8,14 @@
 import Foundation
 import SwiftUI
 
-//MARK: - Enum Loading State
+
 enum LoadingState {
     case loading
     case success
     case failed
     case none
 }
+
 class DetailedViewModel: ObservableObject {
     @Published var loadingState: LoadingState = .none
     @Published var myWeather: MyWeather?
@@ -26,7 +27,7 @@ class DetailedViewModel: ObservableObject {
     }
     
     let id = UUID()
-//MARK: - func getByCity
+    
     func getByCity(city: String) {
         webService.getCurrentCity(city: city.trimmedAndEscaped()) { result in
             switch result {
@@ -43,7 +44,7 @@ class DetailedViewModel: ObservableObject {
             }
         }//webService
     }//end func
-//MARK: - Details
+
     var cityName: String {
         return myWeather!.city
     }
@@ -56,7 +57,7 @@ class DetailedViewModel: ObservableObject {
     var icon: String {
         return myWeather!.icon0
     }
-//MARK: - Temperature
+
     func getTempUnit (unit: TemperatureUnit) -> [String] {
         switch unit {
             case .celsius:
@@ -80,7 +81,6 @@ class DetailedViewModel: ObservableObject {
         }
     }
     
-//MARK: - Functions
     func roundedOf(_ roundOf: Double) -> String {
         return String(format: "%.0f", roundOf)
     }

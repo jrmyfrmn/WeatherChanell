@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct DetailScreen: View {
-//MARK: - Property
+    
     @State var myWeather: WeatherViewModel!
     @AppStorage("isDarkMode") private var isDarkMode = false
     
-//MARK: - Body
+    
     var body: some View {
         ZStack {
             Image("Background")
@@ -27,7 +27,6 @@ struct DetailScreen: View {
         .navigationBarHidden(true)
     }
 }
-//MARK: - Preview
 struct DetailScreen_Previews: PreviewProvider {
     static var previews: some View {
         AddLocationView()

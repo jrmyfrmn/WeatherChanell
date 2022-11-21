@@ -8,14 +8,12 @@
 import SwiftUI
 
 struct ForecastList: View {
-    //MARK: - Property
+
     let myWeather: WeatherViewModel
     @EnvironmentObject var store: Store
     @ObservedObject var weatherVM = WeatherVM()
     @AppStorage("isDarkMode") private var isDarkMode = false
-    //@State var myWeather: WeatherViewModel!
     
-    //MARK: - Body
     var body: some View {
         NavigationView {
             VStack {
@@ -38,8 +36,7 @@ struct ForecastList: View {
 
                                 Text("\(myWeather.getTempByUnit(unit: store.tempUnit))° \(String(store.tempUnit.displayText.prefix(1)))")
                                     .font(.system(size: 35))
-                                    .fontWeight(.semibold)
-                                
+                                    .fontWeight(.semibold)                                
                             }
                         }
                         .padding()
@@ -71,9 +68,6 @@ struct ForecastList: View {
                     DailyRow(logo: "\(myWeather.getWeatherIconForCity(icon: myWeather.icon))", day: "\(weatherVM.dailyDays[3])", temp: "\(myWeather.getTempByUnit(unit: store.tempUnit))°\(String(store.tempUnit.displayText.prefix(1)))")
                     Divider()
                     DailyRow(logo: "\(myWeather.getWeatherIconForCity(icon: myWeather.icon))", day: "\(weatherVM.dailyDays[4])", temp: "\(myWeather.getTempByUnit(unit: store.tempUnit))°\(String(store.tempUnit.displayText.prefix(1)))")
-//                    ForEach((1...5), id:\.self) {day in
-//                        WeatherDay(day: day)
-//                    }
                 }
                 .offset(x: 0, y: -5)
                 
@@ -101,7 +95,7 @@ struct ForecastList: View {
         }//NavView
 }
     }
-//MARK: - Preview
+
 struct ForecastList_Previews: PreviewProvider {
     static var previews: some View {
         AddLocationView().environmentObject(Store())

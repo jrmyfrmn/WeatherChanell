@@ -13,9 +13,7 @@ struct AddLocation: Identifiable, Codable {
     var location: String
     
     static var sampleData: [AddLocation] {
-        [
-            AddLocation(location: "Makati")
-        ]
+        [AddLocation(location: "Makati")]
     }
 }
 

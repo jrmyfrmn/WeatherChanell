@@ -32,14 +32,12 @@ struct SplashScreenView: View {
             }
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                    withAnimation { // to avoid abrupt showing of ContentView
+                    withAnimation {
                         self.isActive = true
-                    }
-                    
+                    }                    
                 }
             }
         }
-        
     }
 }
 
