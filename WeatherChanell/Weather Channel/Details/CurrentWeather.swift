@@ -28,10 +28,12 @@ struct CurrentWeather: View {
                         .bold()
                         .foregroundColor(Color("TextColor"))
                     
+                    Image(systemName: "chevron.right.circle.fill")
+                        .foregroundColor(Color("TextColor"))
+                    
                 })
                 .navigationTitle("")
-                Image(systemName: "chevron.right.circle.fill")
-                    .foregroundColor(Color("TextColor"))
+                
             }
             HStack (alignment: .center) {
                 Spacer()
